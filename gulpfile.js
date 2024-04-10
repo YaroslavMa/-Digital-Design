@@ -91,7 +91,7 @@ gulp.task("build", gulp.series(cleanDist, gulp.parallel(html, scss, js)));
 // gulp.task("dev", gulp.parallel(html, scss, js, watcher));
 gulp.task(
   "dev",
-  gulp.series( 
+  gulp.series(
     gulp.parallel(html, scss, js, image, fonts),
     gulp.parallel(server, watcher)
   )
