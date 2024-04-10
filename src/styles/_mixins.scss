@@ -1,0 +1,57 @@
+// @mixin flex-center {
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: row;
+// }
+
+// @mixin main-button($bg-color: black) {
+//    background: $bg-color;
+//    color: #fff;
+//    padding: 20px 30px;
+//    border: 2px solid gold;
+//    &:hover{
+//       background-color: blueviolet;
+//    }
+// }
+
+// %message-shared {
+//    border: 2px solid green;
+//    border-radius: 5px;
+//    padding: 10px;
+//    color: #333;
+//    &:hover{
+//       background-color: pink;
+//       border-color: greenyellow;
+//    }
+// }
+
+@mixin inter-font($ln-height) {
+  color: #000;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: $ln-height;
+}
+@mixin gilroy-text($ft-weight, $ft-size, $ln-height,$tt-transform) {
+  color: #252525;
+  font-family: Gilroy;
+  font-size: $ft-size;
+  font-style: normal;
+  font-weight: $ft-weight;
+  line-height: $ln-height;
+  text-transform: $tt-transform;
+}
+
+@mixin border-bottom {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 1px solid #252525;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+}
