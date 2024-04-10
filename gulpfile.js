@@ -9,14 +9,14 @@ const sass = require("gulp-sass")(require("sass"));
 const htmlMin = require("gulp-htmlmin");
 
 const fonts = () => {
-  return gulp.src("./src/fonts/*.ttf").pipe(gulp.dest("./dist/fonts"));
+  return gulp.src("./src/fonts/*.ttf").pipe(gulp.dest("./fonts"));
 };
 
 const html = () => {
   return gulp
     .src("./src/**/*.html")
     .pipe(htmlMin({ collapseWhitespace: true }))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest("./"));
 };
 
 const js = () => {
@@ -31,7 +31,7 @@ const js = () => {
         },
       })
     )
-    .pipe(gulp.dest("./dist/script"));
+    .pipe(gulp.dest("./script"));
 };
 
 const css = () => {
@@ -39,7 +39,7 @@ const css = () => {
     .src("./src/styles/**/*.css")
     .pipe(concat("style.css"))
     .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./dist/styles"));
+    .pipe(gulp.dest("./styles"));
 };
 
 const scss = () => {
@@ -49,11 +49,11 @@ const scss = () => {
     .pipe(concat("style.css"))
     .pipe(cleanCSS({ compatibility: "ie8" }))
 
-    .pipe(gulp.dest("./dist/styles"));
+    .pipe(gulp.dest("./styles"));
 };
 
 const cleanDist = () => {
-  return gulp.src("./dist", { read: false }).pipe(gulpClean());
+  return gulp.src("./", { read: false }).pipe(gulpClean());
 };
 
 const watcher = () => {
@@ -69,13 +69,13 @@ const watcher = () => {
 const server = () => {
   browserSync.init({
     server: {
-      baseDir: "./dist",
+      baseDir: "./",
     },
   });
 };
 
 const image = () => {
-  return gulp.src("./src/image/**/*.*").pipe(gulp.dest("./dist/image/"));
+  return gulp.src("./src/image/**/*.*").pipe(gulp.dest("./image/"));
 };
 
 gulp.task("html", html);
