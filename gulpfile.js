@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const concat = require("gulp-concat");
 const minify = require("gulp-minify");
 const cleanCSS = require("gulp-clean-css");
-const clean = require("gulp-clean");
+const gulpClean = require("gulp-clean");
 const { watch } = require("browser-sync");
 const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass")(require("sass"));
@@ -53,7 +53,7 @@ const scss = () => {
 };
 
 const cleanDist = () => {
-  return gulp.src("./", { read: false }).pipe(gulpClean());
+  return gulp.src("./dist", { read: false }).pipe(gulpClean());
 };
 
 const watcher = () => {
@@ -69,7 +69,7 @@ const watcher = () => {
 const server = () => {
   browserSync.init({
     server: {
-      baseDir: "./",
+      baseDir: "./dist",
     },
   });
 };
@@ -88,7 +88,6 @@ gulp.task("image", image);
 
 gulp.task("build", gulp.series(cleanDist, gulp.parallel(html, scss, js)));
 
-// gulp.task("dev", gulp.parallel(html, scss, js, watcher));
 gulp.task(
   "dev",
   gulp.series(

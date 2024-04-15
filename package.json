@@ -4,9 +4,8 @@
   "description": "lesson gulp",
   "main": "app.js",
   "scripts": {
- "dev": "gulp dev",
-  "build": "gulp build"
-
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "keywords": [
     "lesson",
