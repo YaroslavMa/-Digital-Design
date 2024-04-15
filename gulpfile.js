@@ -53,7 +53,7 @@ const scss = () => {
 };
 
 const cleanDist = () => {
-  return gulp.src("./", { read: false }).pipe(gulpClean());
+  return gulp.src("./dist", { read: false }).pipe(gulpClean());
 };
 
 const watcher = () => {
@@ -69,7 +69,7 @@ const watcher = () => {
 const server = () => {
   browserSync.init({
     server: {
-      baseDir: "./",
+      baseDir: "./dist",
     },
   });
 };
