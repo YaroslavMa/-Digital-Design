@@ -16,7 +16,7 @@ const html = () => {
   return gulp
     .src("./src/**/*.html")
     .pipe(htmlMin({ collapseWhitespace: true }))
-    .pipe(gulp.dest("./"));
+    .pipe(gulp.dest("./dist/"));
 };
 
 const js = () => {
@@ -31,7 +31,7 @@ const js = () => {
         },
       })
     )
-    .pipe(gulp.dest("./script"));
+    .pipe(gulp.dest("./dist/script"));
 };
 
 const css = () => {
@@ -39,7 +39,7 @@ const css = () => {
     .src("./src/styles/**/*.css")
     .pipe(concat("style.css"))
     .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./styles"));
+    .pipe(gulp.dest("./dist/styles"));
 };
 
 const scss = () => {
@@ -49,7 +49,7 @@ const scss = () => {
     .pipe(concat("style.css"))
     .pipe(cleanCSS({ compatibility: "ie8" }))
 
-    .pipe(gulp.dest("./styles"));
+    .pipe(gulp.dest("./dist/styles"));
 };
 
 const cleanDist = () => {
@@ -75,7 +75,7 @@ const server = () => {
 };
 
 const image = () => {
-  return gulp.src("./src/image/**/*.*").pipe(gulp.dest("./image/"));
+  return gulp.src("./src/image/**/*.*").pipe(gulp.dest("./dist/image/"));
 };
 
 gulp.task("html", html);
